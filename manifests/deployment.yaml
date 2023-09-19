@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: samplenetapp
+  labels:
+    app: samplenetapp
+  namespace: namespace-workflow-1695117080714
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: samplenetapp
+  template:
+    metadata:
+      labels:
+        app: samplenetapp
+    spec:
+      containers:
+        - name: samplenetapp
+          image: acrworkflow1695117080714.azurecr.io/image-workflow-1695117080714:latest
+          ports:
+            - containerPort: 5000
